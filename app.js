@@ -5,18 +5,13 @@ const path = require('path');
 // create express app ============================
 const app = express();
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, "public")));
-
-// view engine setup ============================
-app.set('view engine', 'ejs');
-app.set('views', 'views');
 
 app.get('/', function (req, res, next) {
-    res.render('home');
+    res.status(200).json({ msg: "Hello World" })
 });
 
 app.get('*', function (req, res, next) {
-    res.render('404.ejs');
+    res.status(200).json({ msg: "Hello World" })
 });
 
 // server starting ============================
